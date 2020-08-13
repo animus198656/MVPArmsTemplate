@@ -22,7 +22,7 @@ import ${contractPackageName}.${pageName}Contract;
 <#elseif needFragment>
 @FragmentScope
 </#if>
-public class ${pageName}Presenter extends BaseImpPresenter<${pageName}Contract.View> {
+public class ${pageName}Presenter extends ${pageName}Contract.AbsPresenter {
     @Inject
     Application mApplication;
     @Inject

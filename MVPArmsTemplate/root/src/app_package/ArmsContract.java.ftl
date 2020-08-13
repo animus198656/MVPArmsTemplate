@@ -1,18 +1,34 @@
 package ${contractPackageName};
 
+import android.app.Application;
+
+import com.jess.arms.integration.AppManager;
 import com.jess.arms.mvp.IView;
-import com.jess.arms.mvp.IModel;
+import com.mine.armsutil.BaseImpPresenter;
 
-<#import "root://activities/MVPArmsTemplate/globals.xml.ftl" as gb>
+import javax.inject.Inject;
 
-<@gb.fileHeader />
 public interface ${pageName}Contract {
-    //对于经常使用的关于UI的方法可以定义到IView中,如显示隐藏进度条,和显示文字消息
+    //对于经常使用的关于UI的方法定义在IView中,如显示隐藏进度条,和显示文字消息
     interface View extends IView {
 
     }
-    //Model层定义接口,外部只需关心Model返回的数据,无需关心内部细节,即是否使用缓存
-    interface Model extends IModel{
+   
+    abstract class AbsPresenter extends BaseImpPresenter<${pageName}Contract.View> {
+        @Inject
+        Application mApplication;
+        @Inject
+        AppManager mAppManager;
 
+        public AbsPresenter(View view) {
+            super(view);
+        }
+
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+            this.mAppManager = null;
+            this.mApplication = null;
+        }
     }
 }
