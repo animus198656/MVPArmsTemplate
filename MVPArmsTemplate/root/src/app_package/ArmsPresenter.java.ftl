@@ -8,8 +8,6 @@ import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.di.scope.FragmentScope;
 </#if>
 
-import ${contractPackageName}.${pageName}Contract;
-
 import javax.inject.Inject;
 
 <#if needActivity && needFragment>

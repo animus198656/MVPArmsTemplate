@@ -4,18 +4,12 @@ import dagger.BindsInstance;
 import dagger.Component;
 import com.jess.arms.di.component.AppComponent;
 
-import ${contractPackageName}.${pageName}Contract;
-
 <#if needActivity && needFragment>
 import com.jess.arms.di.scope.ActivityScope;
-import ${ativityPackageName}.${pageName}Activity;
-import ${fragmentPackageName}.${pageName}Fragment;
 <#elseif needActivity>
-import com.jess.arms.di.scope.ActivityScope;
-import ${ativityPackageName}.${pageName}Activity;   
+import com.jess.arms.di.scope.ActivityScope;  
 <#elseif needFragment>
 import com.jess.arms.di.scope.FragmentScope;
-import ${fragmentPackageName}.${pageName}Fragment;
 </#if>
 
 <#if needActivity && needFragment>

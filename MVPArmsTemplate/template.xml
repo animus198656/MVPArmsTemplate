@@ -63,7 +63,7 @@
         name="Ativity Package Name"
         type="string"
         constraints="package"
-        suggest="${packageName}.mvp.ui.activity"
+        suggest="${packageName}."
         visibility="needActivity"
         help="Activity 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名"
         />
@@ -126,7 +126,7 @@
         name="Contract Package Name"
         type="string"
         constraints="package"
-        suggest="${packageName}.mvp.contract" 
+        suggest="${packageName}." 
         visibility="needContract"
         help="Contract 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名"
         />  
@@ -143,34 +143,15 @@
         name="Presenter Package Name"
         type="string"
         constraints="package"
-        suggest="${packageName}.mvp.presenter"
+        suggest="${packageName}."
         visibility="needPresenter"
         help="Presenter 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名"
         />  
 
-<parameter
-        id="needModel"
-        name="Generate Model"
-        type="boolean"
-        default="true"
-        help="是否需要生成 Model ? 不勾选则不生成" /> 
-
-
-<parameter
-        id="modelPackageName"
-        name="Model Package Name"
-        type="string"
-        constraints="package"
-        suggest="${packageName}.mvp.model"
-        visibility="needModel"
-        help="Model 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名"
-        />  
-
-
 
 <parameter
         id="needDagger"
-        name="Generate Dagger (Moudle And Component)"
+        name="Generate Dagger Component"
         type="boolean"
         default="true"
         help="是否需要生成 Dagger 组件? 不勾选则不生成" />  
@@ -180,23 +161,10 @@
         name="Component Package Name"
         type="string"
         constraints="package"
-        suggest="${packageName}.di.component"
+        suggest="${packageName}."
         visibility="needDagger"
         help="Component 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名"
         />  
-
-
-   <parameter
-        id="moudlePackageName"
-        name="Moudle Package Name"
-        type="string"
-        constraints="package"
-        suggest="${packageName}.di.module"
-        visibility="needDagger"
-        help="Moudle 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名"
-        />  
-
-
 
 
     <!-- 128x128 thumbnails relative to template.xml -->
