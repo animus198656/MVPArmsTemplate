@@ -10,16 +10,11 @@ import com.jess.arms.di.scope.ActivityScope;
 <#elseif needFragment>
 import com.jess.arms.di.scope.FragmentScope;
 </#if>
-import com.jess.arms.mvp.BasePresenter;
-import com.jess.arms.http.imageloader.ImageLoader;
-import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+import com.mine.armsutil.BaseImpPresenter;
 import javax.inject.Inject;
 
 import ${contractPackageName}.${pageName}Contract;
 
-<#import "root://activities/MVPArmsTemplate/globals.xml.ftl" as gb>
-
-<@gb.fileHeader />
 <#if needActivity && needFragment>
 @ActivityScope
 <#elseif needActivity>
@@ -27,27 +22,21 @@ import ${contractPackageName}.${pageName}Contract;
 <#elseif needFragment>
 @FragmentScope
 </#if>
-public class ${pageName}Presenter extends BasePresenter<${pageName}Contract.Model, ${pageName}Contract.View> {
-    @Inject
-    RxErrorHandler mErrorHandler;
+public class ${pageName}Presenter extends BaseImpPresenter<${pageName}Contract.View> {
     @Inject
     Application mApplication;
-    @Inject
-    ImageLoader mImageLoader;
     @Inject
     AppManager mAppManager;
 
     @Inject
-    public ${pageName}Presenter (${pageName}Contract.Model model, ${pageName}Contract.View rootView) {
-        super(model, rootView);
+    public ${pageName}Presenter (${pageName}Contract.View rootView) {
+        super(rootView);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        this.mErrorHandler = null;
         this.mAppManager = null;
-        this.mImageLoader = null;
         this.mApplication = null;
     }
 }
