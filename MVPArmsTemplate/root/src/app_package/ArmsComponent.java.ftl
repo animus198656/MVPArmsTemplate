@@ -4,7 +4,6 @@ import dagger.BindsInstance;
 import dagger.Component;
 import com.jess.arms.di.component.AppComponent;
 
-import ${moudlePackageName}.${pageName}Module;
 import ${contractPackageName}.${pageName}Contract;
 
 <#if needActivity && needFragment>
@@ -19,9 +18,6 @@ import com.jess.arms.di.scope.FragmentScope;
 import ${fragmentPackageName}.${pageName}Fragment;
 </#if>
 
-<#import "root://activities/MVPArmsTemplate/globals.xml.ftl" as gb>
-
-<@gb.fileHeader />
 <#if needActivity && needFragment>
 @ActivityScope
 <#elseif needActivity>
@@ -29,7 +25,7 @@ import ${fragmentPackageName}.${pageName}Fragment;
 <#elseif needFragment>
 @FragmentScope
 </#if>
-@Component(modules = ${pageName}Module.class, dependencies = AppComponent.class)
+@Component(dependencies = AppComponent.class)
 public interface ${pageName}Component {
   <#if needActivity && needFragment>
 	void inject(${pageName}Activity activity);
