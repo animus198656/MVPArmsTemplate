@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.jess.arms.integration.AppManager;
 import com.jess.arms.mvp.IView;
-import com.mine.armsutil.BaseImpPresenter;
+import com.mine.armsutil.BasePresenterImp;
 
 import javax.inject.Inject;
 
@@ -14,7 +14,7 @@ public interface ${pageName}Contract {
 
     }
    
-    abstract class AbsPresenter extends BaseImpPresenter<${pageName}Contract.View> {
+    abstract class AbsPresenter extends BasePresenterImp<${pageName}Contract.View> {
         @Inject
         Application mApplication;
         @Inject
