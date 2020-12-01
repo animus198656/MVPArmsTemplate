@@ -1,8 +1,5 @@
 package ${contractPackageName};
 
-import android.app.Application;
-
-import com.jess.arms.integration.AppManager;
 import com.jess.arms.mvp.IView;
 import com.mine.armsutil.BasePresenterImp;
 
@@ -15,20 +12,10 @@ public interface ${pageName}Contract {
     }
    
     abstract class AbsPresenter extends BasePresenterImp<${pageName}Contract.View> {
-        @Inject
-        Application mApplication;
-        @Inject
-        AppManager mAppManager;
 
         public AbsPresenter(View view) {
             super(view);
         }
 
-        @Override
-        public void onDestroy() {
-            super.onDestroy();
-            this.mAppManager = null;
-            this.mApplication = null;
-        }
     }
 }
